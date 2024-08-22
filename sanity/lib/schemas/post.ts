@@ -40,7 +40,7 @@ export const post = {
 			type: 'array',
 			of: [{ type: 'block' }, { type: 'image',fields:[{
 				type:'text',name:'alt',title:"Alt"
-			}] }, { type: 'code' }],
+			}] },{ type: 'code' },],
 		},
 		{
 			name: 'tags',
