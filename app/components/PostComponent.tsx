@@ -19,9 +19,9 @@ const PostComponent = ({ post }: { post: Post }) => {
 
 			<div>
 				{post?.tags?.map(tag => (
-					<div key={tag?._id} className='inline-block bg-purple-600 text-white text-xs px-2 py-1 rounded-full mr-2'>
+					<Link href={`/tag/${tag.slug.current}`} key={tag?._id} className='inline-block bg-purple-600 text-white text-xs px-2 py-1 rounded-full mr-2'>
 						{tag.name}
-					</div>
+					</Link>
 				))}
 			</div>
 		</div>

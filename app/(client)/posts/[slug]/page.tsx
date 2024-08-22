@@ -11,6 +11,7 @@ import { urlForImage } from '@/sanity/lib/image'
 
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { solarizedlight } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { notFound } from 'next/navigation'
 
 const dateFont = VT323({ weight: '400', subsets: ['latin'] })
 
@@ -33,8 +34,15 @@ async function getPost(slug: string) {
 	return data
 }
 
+export const revalidate = 60
+
 const page = async ({ params }: Params) => {
 	const post: Post = await getPost(params?.slug)
+
+if(!post) {
+	notFound()
+}
+
 	return (
 		<div>
 			<Header title={post?.title} />
